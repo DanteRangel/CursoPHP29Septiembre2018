@@ -9,20 +9,24 @@
 	<div class="container">
 		<div class="row">
 			<div class="offset-md-3 col-md-6">
-				<form action="login.php" method="GET">
+				<form action="login.php?LOQUESEA=ASDA" method="post">
 					<div class="form-group <?php echo isset($_GET['errorUser'])?' has-danger ':'';?>">
 						<label for="">Usuario</label>
-						<input type="text" name="user" class="form-control <?php echo isset($_GET['errorUser'])?' form-control-danger ':'';?>" placeholder="Introduce tu usuario">
-						<span class="text-danger">
-							El user es incorrecto
-						</span>
+						<input type="text" name="user" class="form-control <?php echo isset($_GET['errorUser'])?' form-control-danger ':'';?>" placeholder="Introduce tu usuario" value="<?php echo isset($_GET['user'])?$_GET['user']:'';?>">
+						<?php if (isset($_GET['errorUser'])) { ?>
+							<span class="text-danger">
+								<?php echo $_GET['errorUser']; ?>
+							</span>
+						<?php } ?>
 					</div>
 					<div class="form-group <?php echo isset($_GET['errorPassword'])?' has-danger ':'';?>">
 						<label for="">Contraseña</label>
 						<input type="password" name="password" class="form-control <?php echo isset($_GET['errorPassword'])?' form-control-danger ':'';?>" placeholder="Introduce la contraseña">
-						<span class="text-danger">
-							El password es incorrecto
-						</span>
+						<?php if (isset($_GET['errorPasswird'])) { ?>
+							<span class="text-danger">
+								<?php echo $_GET['errorPassword']; ?>
+							</span>
+						<?php } ?>
 					</div>
 					<div class="row">
 						<input type="submit" class="btn btn-success" value="Enviar">
