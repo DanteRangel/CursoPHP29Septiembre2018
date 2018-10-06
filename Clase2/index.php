@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if (isset($_SESSION['user'] )) {
+		header('Location: ./dashboard.php');
+	}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -22,7 +28,7 @@
 					<div class="form-group <?php echo isset($_GET['errorPassword'])?' has-danger ':'';?>">
 						<label for="">Contraseña</label>
 						<input type="password" name="password" class="form-control <?php echo isset($_GET['errorPassword'])?' form-control-danger ':'';?>" placeholder="Introduce la contraseña">
-						<?php if (isset($_GET['errorPasswird'])) { ?>
+						<?php if (isset($_GET['errorPassword'])) { ?>
 							<span class="text-danger">
 								<?php echo $_GET['errorPassword']; ?>
 							</span>
