@@ -1,1 +1,7 @@
-<?php include './session.php'; ?>
+<?php 
+ 
+include './header.php'; 
+include './session.php';
+include './footer.php'; 
+
+?>

@@ -1,4 +1,6 @@
-
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,7 +32,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="#" class="site_title"><i class="fa fa-paw"></i> <span>TecGurus</span></a>
+              <a href="./dashboard.php" class="site_title"><i class="fa fa-paw"></i> <span>TecGurus</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -63,9 +65,15 @@
               </div>
 
               <ul class="nav navbar-nav navbar-right">    
-                <li style="margin-right: 5em;">
-                  <a href="./?controller=Login&method=logout" class="user-profile" >Cerrar Sesion</a>
-                </li>          
+                <?php 
+                  if(isset($_SESSION['user'])) {
+                ?>
+                  <li style="margin-right: 5em;">
+                    <a href="./logout.php" class="user-profile" >Cerrar Sesion</a>
+                  </li>          
+                <?php 
+                  } 
+                ?>
                   
               </ul>
             </nav>
