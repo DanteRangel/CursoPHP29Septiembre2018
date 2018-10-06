@@ -3,10 +3,7 @@
 	$user = "usuario";
 	$password = "Hola123.";
 	$error = '?';
-	print_r($_REQUEST);
-	print_r($_GET);
-	print_r($_POST);
-	return ;
+	
 
 	if(isset($_REQUEST['user']) && isset($_REQUEST['password'])) {
 		if ($password != $_REQUEST['password']) {
