@@ -14,10 +14,9 @@
 		if(method_exists($controller, $_REQUEST['method'])) {
 			call_user_func($controller .'::'.$_REQUEST['method']);
 		} else {		
-			call_user_func($controller .'::show');
-			echo "Error";
+			echo "Ruta no valida";
 		}
 	} else {
-		echo "entro;";
+		echo "Ruta no valida";
 	}
  ?>
