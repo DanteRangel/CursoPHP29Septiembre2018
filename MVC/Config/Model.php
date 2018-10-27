@@ -1,6 +1,8 @@
 <?php 
-	include('Conexion.php');
+	namespace MVC\Config;
+	use MVC\Config\Conexion;
 	class Model extends Conexion {
+		
 		public static function findAll() {
 			if(isset(static::$connection)) {
 				$con = self::connection(static::$connection);
