@@ -7,16 +7,15 @@
 
 	
 	$path = './Core/Controller/';
-	if(isset($_REQUEST['controller'])  && isset($_REQUEST['method']) && file_exists($path . $_REQUEST['controller'] . 'Controller.php')) {
-		$controller =  $_REQUEST['controller'] . 'Controller';
-		call_user_func($controller .'::'.$_REQUEST['method']); 
-		return;
+	if(isset($_REQUEST['controller'])  && isset($_REQUEST['method'])) {
+
+		$controller =  "\MVC\Core\Controller\\".$_REQUEST['controller'] . 'Controller';
+
 		if(method_exists($controller, $_REQUEST['method'])) {
-			echo "entra";
-			$controller::$_REQUEST['method']();
+			call_user_func($controller .'::'.$_REQUEST['method']);
 		} else {		
-			echo "no entra";
-			$controller::show();
+			call_user_func($controller .'::show');
+			echo "Error";
 		}
 	} else {
 		echo "entro;";
