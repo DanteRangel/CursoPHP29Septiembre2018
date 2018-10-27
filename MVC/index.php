@@ -1,19 +1,26 @@
 
 <?php 
 	include ('.config/app.php');
-	$path = './Core/Controller/';
-	if(isset($_REQUEST['controller'])  && isset($_REQUEST['method']) && file_exists($path . $_REQUEST['controller'] . 'Controller.php')) {
-		include ($path . $_REQUEST['controller'] . 'Controller.php' );
-		$controller =  $_REQUEST['controller'] . 'Controller' ;
+	include ('./vendor/autoload.php');
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+	
+	$user = App\Core\Model\User::all();
+	#var_dump($user);
+	$user[1]->name = "AMORCITO MIO";
+	var_dump($user[1]->save());
+	//$user = App\Core\Model\User::find(1);
+	print_r(App\Core\Model\User::all());
+	#print_r(App\Core\Model\Producto::all());
 
-		if(method_exists($controller, $_REQUEST['method'])) {
-echo "entra";
-			$controller::$_REQUEST['method']();
-		} else {		
-			echo "no entra";
-			$controller::show();
-		}
-	} else {
-echo "entro;";
-	}
+	/*
+
+#print_r(App\Core\Model\User::find(1));
+	#print_r(App\Core\Model\User::all());
+	
+	#var_dump($user);
+	$user->name = "Dante";
+	print_r($user);
+	#print_r(App\Core\Model\Producto::all());
+	*/
  ?>

@@ -1,5 +1,5 @@
 <?php 
-
+	namespace App\Config;
 	class Conexion {
 		public static $con;
 		public static function connection($database = false) {
@@ -16,7 +16,7 @@
 			$con = false;
 			switch ($credentials['driver']) {
 				case 'mysql':
-					$con =  new mysqli($credentials['host'], $credentials['user'], $credentials['pass'], $credentials['database']) or die ('muere');					
+					$con =  new \mysqli($credentials['host'], $credentials['user'], $credentials['pass'], $credentials['database']) or die ('muere');					
 					break;
 				case 'postgresql':
 					# code...
@@ -29,7 +29,7 @@
 					break;
 
 				default:
-					$con =  new mysqli($credentials['host'], $credentials['user'], $credentials['pass'], $credentials['database']) or die ('muere');					
+					$con =  new \mysqli($credentials['host'], $credentials['user'], $credentials['pass'], $credentials['database']) or die ('muere');					
 					break;
 			}
 			
