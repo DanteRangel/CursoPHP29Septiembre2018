@@ -4,4 +4,5 @@
 	define('APP_Model', realpath('/Core/Model/'));
 	define('APP_Controller', realpath('/Core/Controller/'));
 	define('APP_View', realpath('/View/'));
+	define('APP_ASSETS', realpath('/assets/'));
  ?>
