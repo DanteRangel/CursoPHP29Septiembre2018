@@ -6,6 +6,7 @@
 		protected static $connection = 'pocoyo';
 		// definir primary key diferente a la convencion
 		public static $primaryKey = 'id_usuario';
+		
 	}
 
 

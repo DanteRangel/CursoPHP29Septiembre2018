@@ -41,5 +41,66 @@
 				header('Location: ./index.php?controller=User&method=show');
 			}					
 		}
+		public static function create()
+		{
+			$permisos = Permisos::all();
+			include('View/layouts/header.php');
+			include('View/Users/create.php');
+			include('View/layouts/footer.php');
+		}
+		public static function store()
+		{
+			if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['type']) && isset($_POST['password']))
+			{
+				$user= User::create([
+					'name' => $_POST['name'],
+					'email' => $_POST['email'],
+					'type' => $_POST['type'],
+					'password' => $_POST['password']
+				]);
+				header('Location: ./?controller=User&method=show');
+			}
+			else
+			{
+
+			}
+		}
+
+		public static function delete() {
+			if (isset($_POST['id'])) {
+				$user = User::destroy($_POST['id']);
+				header('Content-type: application/json');
+				if($user) {
+					echo json_encode(
+						[
+							'status' => 200,
+							'meta' => [
+								'status'=>200,
+								'message' => 'El usuario ha sido borrado satisfactoriamente.',
+								'data' => $user
+							]
+						]
+					);
+					return;
+				} else{
+					echo json_encode(
+						[
+							'status' => 500,
+							'meta' => [
+								'status'=> 500,
+								'message' => 'Server Error ',
+								'data' => $user
+							]
+						]
+					);
+					return;
+				}
+
+				
+			}
+		}
 	}
+
+
+
  ?>

@@ -2,7 +2,7 @@
 	return [
 		'pocoyo' => [
 			'driver' => 'mysql',
-			'host' => 'localhost',
+			'host' => '172.17.0.3',
 			'pass' => '311332065',
 			'user' => 'root',
 			'database' => 'CursoPHP'
